@@ -1,9 +1,7 @@
-from wtforms import Form
+from wtforms import Form, validators
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, IntegerField
-from wtforms import EmailField
-from wtforms import validators
+from wtforms import StringField, IntegerField, EmailField
 
 class UserForm2(Form):
     id=IntegerField('id', [validators.number_range(min=1, max=20, message='valor no valido')])
