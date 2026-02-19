@@ -7,8 +7,8 @@
 <div class="min-h-screen flex flex-col items-center justify-center bg-gray-50">
 
     <a href="{{ url_for('alumnos') }}" class="bg-black text-white px-4 py-2 rounded-base">
-            Agregar alumno
-        </a>  
+        Agregar alumno
+    </a>
 
     <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
         <table class="w-full text-sm text-left rtl:text-right text-body">
@@ -48,16 +48,19 @@
                         {{ alumno.email }}
                     </td>
                     <td class="px-6 py-4">
-                        <button type="button"
-                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">Editar</button>
+                        <a href="modificar?id={{ alumno.id }}" class="bg-brand text-white px-4 py-2 rounded-base">
+                            Editar
+                        </a>
                     </td>
                     <td class="px-6 py-4">
-                        <button type="button"
-                            class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">Detalles</button>
+                        <a href="detalles?id={{ alumno.id }}" class="bg-green-500 text-white px-4 py-2 rounded-base">
+                            Detalles
+                        </a>
                     </td>
                     <td class="px-6 py-4">
-                        <button type="button"
-                            class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">Eliminar</button>
+                        <a href="#" class="bg-red-500 text-white px-4 py-2 rounded-base">
+                            Eliminar
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}
