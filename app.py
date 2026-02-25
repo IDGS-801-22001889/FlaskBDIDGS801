@@ -6,10 +6,12 @@ from flask import g
 from config import DevelopmentConfig
 import forms
 from models import db, Alumnos
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 csrf = CSRFProtect()
+migrate = Migrate(app, db)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -73,6 +75,29 @@ def modificar():
 		db.session.commit()
 		return redirect(url_for('index'))
 	return render_template('modificar.html', form=create_form)
+
+@app.route("/eliminar", methods=['GET', 'POST'])
+def eliminar():
+	create_form = forms.UserForm2(request.form)
+	if request.method == 'GET':
+		id = request.args.get('id')
+		alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+		if alum1:
+			create_form.id.data = alum1.id
+			create_form.nombre.data = alum1.nombre
+			create_form.apaterno.data = alum1.apaterno
+			create_form.email.data = alum1.email
+			return render_template("eliminar.html", form=create_form)
+		
+	if request.method == 'POST':
+			id = create_form.id.data
+			alum = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+			if alum:
+				db.session.delete(alum)
+				db.session.commit()
+			return redirect(url_for('index'))
+		
+	return render_template("eliminar.html", form=create_form)
 
 if __name__ == '__main__':
 	csrf.init_app(app)

@@ -6,10 +6,10 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<div class="min-h-screen flex items-center justify-center bg-gray-50">
+<div class="w-full flex justify-center py-10">
 
+    <form action="" method="post" novalidate class="w-full max-w-3xl px-8">
 
-    <form action="" method="post" novalidate class="max-w-md mx-auto">
         {{form.csrf_token}}
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
@@ -32,9 +32,9 @@
         </div>
 
         <button type="submit"
-            class="text-white bg-black box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enviar</button>
+            class="text-white bg-green-500 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enviar</button>
 
-        <a href="{{ url_for('index') }}" class="bg-black text-white px-4 py-2 rounded-base">
+        <a href="{{ url_for('index') }}" class="bg-red-500 text-white px-4 py-2 rounded-base">
             Cancelar
         </a>
 

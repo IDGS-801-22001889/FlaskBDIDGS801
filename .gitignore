@@ -22,3 +22,5 @@ static/dist/output.css
 .idea/
 .DS_Store
 *.swp
+
+migrations/versions/*
