@@ -13,7 +13,7 @@
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
         <div class="relative z-0 w-full mb-5 group">
-            {{ macros.campoNuevo(form.id, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            {{ macros.campoNuevo(form.matricula, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
             peer', readonly=True) }}
         </div>
@@ -21,31 +21,31 @@
         <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.nombre, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer', readonly=True) }}
+            peer') }}
         </div>
 
         <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.apellidos, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer', readonly=True) }}
+            peer') }}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{ macros.campoNuevo(form.especialidad, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
+            peer') }}
         </div>
 
         <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.email, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer', readonly=True) }}
-        </div>
-
-        <div class="relative z-0 w-full mb-5 group">
-            {{ macros.campoNuevo(form.telefono, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
-            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer', readonly=True) }}
+            peer') }}
         </div>
 
         <button type="submit"
-            class="text-white bg-green-500 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</button>
+            class="text-white bg-green-500 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enviar</button>
 
-        <a href="{{ url_for('index') }}" class="bg-red-500 text-white px-4 py-2 rounded-base">
+        <a href="{{ url_for('maestros.maestro') }}" class="bg-red-500 text-white px-4 py-2 rounded-base">
             Cancelar
         </a>
 

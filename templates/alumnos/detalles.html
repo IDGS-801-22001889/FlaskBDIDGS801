@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block container %}
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="flex items-center justify-center py-16 px-6">
+
+    <div class="w-full max-w-3xl bg-[#112240] border border-[#1f3a5f] rounded-2xl shadow-2xl">
+
+        <div class="flex flex-col md:flex-row">
+
+            <div class="md:w-1/3 bg-[#0f2747] flex items-center justify-center p-8 border-b md:border-b-0 md:border-r border-[#1f3a5f]">
+                <img class="w-40 h-40 object-cover rounded-full border-4 border-[#64b5f6] shadow-lg"
+                     src="{{url_for('static',filename='img/image.png')}}" alt="Foto">
+            </div>
+
+            <div class="md:w-2/3 p-10 text-white">
+
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold tracking-wide text-[#64b5f6]">
+                        Credencial de Alumno
+                    </h2>
+                    <div class="w-20 h-1 bg-[#64b5f6] mt-3 rounded-full"></div>
+                </div>
+
+                <div class="space-y-5 text-sm">
+
+                    <div class="flex justify-between border-b border-[#1f3a5f] pb-2">
+                        <span class="font-medium text-gray-300">Nombre</span>
+                        <span class="font-semibold">{{nombre}}</span>
+                    </div>
+
+                    <div class="flex justify-between border-b border-[#1f3a5f] pb-2">
+                        <span class="font-medium text-gray-300">Apellidos</span>
+                        <span class="font-semibold">{{apellidos}}</span>
+                    </div>
+
+                    <div class="flex justify-between border-b border-[#1f3a5f] pb-2">
+                        <span class="font-medium text-gray-300">Correo</span>
+                        <span class="font-semibold">{{email}}</span>
+                    </div>
+
+                    <div class="flex justify-between pb-2">
+                        <span class="font-medium text-gray-300">Teléfono</span>
+                        <span class="font-semibold">{{telefono}}</span>
+                    </div>
+
+                </div>
+
+                <div class="mt-10">
+                    <a href="{{ url_for('alumnos.alumno') }}" 
+                       class="inline-flex items-center bg-[#64b5f6] hover:bg-[#42a5f5] text-[#0a192f] font-semibold rounded-xl text-sm px-6 py-3 transition-all duration-300 shadow-md hover:shadow-lg">
+                        Regresar
+                        <svg class="w-4 h-4 ms-2 rtl:rotate-180"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round"
+                                  stroke-linejoin="round" stroke-width="2"
+                                  d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

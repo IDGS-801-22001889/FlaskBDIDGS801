@@ -9,38 +9,43 @@
 <div class="w-full flex justify-center py-10">
 
     <form action="" method="post" novalidate class="w-full max-w-3xl px-8">
-
         {{form.csrf_token}}
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
         <div class="relative z-0 w-full mb-5 group">
+            {{ macros.campoNuevo(form.id, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
+            peer', readonly=True) }}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.nombre, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer') }}
+            peer', readonly=True) }}
         </div>
 
         <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.apellidos, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer') }}
+            peer', readonly=True) }}
         </div>
 
         <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.email, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer') }}
+            peer', readonly=True) }}
         </div>
 
         <div class="relative z-0 w-full mb-5 group">
             {{ macros.campoNuevo(form.telefono, class='block py-2.5 px-0 w-full text-sm text-heading bg-transparent
             border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-            peer') }}
+            peer', readonly=True) }}
         </div>
 
         <button type="submit"
-            class="text-white bg-green-500 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Enviar</button>
+            class="text-white bg-green-500 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</button>
 
-        <a href="{{ url_for('index') }}" class="bg-red-500 text-white px-4 py-2 rounded-base">
+        <a href="{{ url_for('alumnos.alumno') }}" class="bg-red-500 text-white px-4 py-2 rounded-base">
             Cancelar
         </a>
 
