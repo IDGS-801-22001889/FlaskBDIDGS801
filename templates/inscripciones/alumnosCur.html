@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block container %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="min-h-screen bg-gray-50 py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-heading">
+                Cursos del alumno: {{ alumno.nombre }}
+            </h1>
+        </div>
+
+        <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-md rounded-base border border-default">
+            <table class="w-full text-sm text-left text-body">
+                <thead class="text-sm text-body bg-neutral-secondary-soft border-b border-default">
+                    <tr>
+                        <th class="px-6 py-4 font-semibold">ID</th>
+                        <th class="px-6 py-4 font-semibold">Nombre</th>
+                        <th class="px-6 py-4 font-semibold">Descripción</th>
+                        <th class="px-6 py-4 font-semibold">Maestro</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for curso in cursos %}
+                    <tr class="bg-neutral-primary border-b border-default hover:bg-neutral-secondary-soft transition">
+                        <td class="px-6 py-4 font-medium text-heading">{{ curso.id }}</td>
+                        <td class="px-6 py-4 font-medium text-heading">{{ curso.nombre }}</td>
+                        <td class="px-6 py-4">{{ curso.descripcion }}</td>
+                        <td class="px-6 py-4">
+                            {{ curso.maestro.nombre }} {{ curso.maestro.apellidos }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="mt-6">
+            <a href="{{ url_for('alumnos.alumno') }}"
+               class="inline-flex items-center text-white bg-blue-600 hover:bg-blue-700
+               font-medium rounded-lg text-sm px-6 py-2.5 transition">
+                Regresar
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

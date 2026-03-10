@@ -4,97 +4,85 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <div class="min-h-screen bg-gray-50 py-12 px-6">
-
     <div class="max-w-7xl mx-auto">
 
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-
             <div>
-                <h1 class="text-3xl font-bold text-heading">
-                    Gestión de Alumnos
-                </h1>
-                <p class="text-body mt-1">
-                    Administra la información de los estudiantes registrados.
-                </p>
+                <h1 class="text-3xl font-bold text-heading">Gestión de Cursos</h1>
+                <p class="text-body mt-1">Administra los cursos registrados.</p>
             </div>
-
             <div class="mt-4 md:mt-0">
-                <a href="{{ url_for('alumnos.regAlumnos') }}"
+                <a href="{{ url_for('cursos.regCurso') }}"
                     class="bg-black text-white px-6 py-3 rounded-base shadow-sm hover:opacity-90 transition">
-                    + Agregar alumno
+                    + Agregar Curso
                 </a>
             </div>
-
         </div>
 
         <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-md rounded-base border border-default">
-
             <table class="w-full text-sm text-left text-body">
-
                 <thead class="text-sm text-body bg-neutral-secondary-soft border-b border-default">
                     <tr>
+                        <th class="px-6 py-4 font-semibold">ID</th>
                         <th class="px-6 py-4 font-semibold">Nombre</th>
-                        <th class="px-6 py-4 font-semibold">Apellidos</th>
-                        <th class="px-6 py-4 font-semibold">Correo</th>
-                        <th class="px-6 py-4 font-semibold">Teléfono</th>
+                        <th class="px-6 py-4 font-semibold">Descripción</th>
+                        <th class="px-6 py-4 font-semibold">Maestro</th>
+                        <th class="px-6 py-4 text-center font-semibold">Detalles</th>
                         <th class="px-6 py-4 text-center font-semibold">Acciones</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    {% for alumno in alumnos %}
+                    {% for cur in cursos %}
                     <tr class="bg-neutral-primary border-b border-default hover:bg-neutral-secondary-soft transition">
-
                         <td class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                            {{ alumno.nombre }}
+                            {{ cur.id }}
                         </td>
-
-                        <td class="px-6 py-4">
-                            {{ alumno.apellidos }}
+                        <td class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                            {{ cur.nombre }}
                         </td>
-
                         <td class="px-6 py-4">
-                            {{ alumno.email }}
+                            {{ cur.descripcion }}
                         </td>
-
                         <td class="px-6 py-4">
-                            {{ alumno.telefono }}
+                            {{ cur.maestro.nombre }} {{ cur.maestro.apellidos }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                
+                                <a href="{{ url_for('cursos.detCurso', id=cur.id) }}"
+                                    class="bg-green-500 text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
+                                    Detalles
+                                </a>
+                                
+                                <a href="{{ url_for('inscripciones.alumnosCurso', id=cur.id) }}"
+                                    class="bg-indigo-500 text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
+                                    Ver Alumnos
+                                </a>
+                                
+                            </div>
                         </td>
 
                         <td class="px-6 py-4">
                             <div class="flex flex-wrap gap-2 justify-center">
-
-                                <a href="{{ url_for('alumnos.modAlumno', id=alumno.id) }}"
+                                <a href="{{ url_for('cursos.modCurso', id=cur.id) }}"
                                     class="bg-brand text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
                                     Editar
                                 </a>
 
-                                <a href="{{ url_for('alumnos.detAlumno', id=alumno.id) }}"
-                                    class="bg-green-500 text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
-                                    Detalles
-                                </a>
-
-                                <a href="{{ url_for('alumnos.eliAlumno', id=alumno.id) }}"
+                                <a href="{{ url_for('cursos.eliCurso', id=cur.id) }}"
                                     class="bg-red-500 text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
                                     Eliminar
                                 </a>
 
-                                <a href="{{ url_for('inscripciones.cursosAlumno', id=alumno.id) }}"
-                                    class="bg-black text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
-                                    Ver cursos
-                                </a>
                             </div>
                         </td>
-
                     </tr>
                     {% endfor %}
                 </tbody>
-
             </table>
         </div>
 
     </div>
-
 </div>
 
 {% endblock %}

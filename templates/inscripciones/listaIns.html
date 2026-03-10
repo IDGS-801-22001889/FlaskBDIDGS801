@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block container %}
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="min-h-screen bg-gray-50 py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-heading">Inscripciones</h1>
+                <p class="text-body mt-1">Selecciona un alumno para inscribirlo a un curso.</p>
+            </div>
+        </div>
+
+        <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-md rounded-base border border-default">
+            <table class="w-full text-sm text-left text-body">
+                <thead class="text-sm text-body bg-neutral-secondary-soft border-b border-default">
+                    <tr>
+                        <th class="px-6 py-4 font-semibold">ID</th>
+                        <th class="px-6 py-4 font-semibold">Nombre</th>
+                        <th class="px-6 py-4 font-semibold">Apellidos</th>
+                        <th class="px-6 py-4 font-semibold">Email</th>
+                        <th class="px-6 py-4 text-center font-semibold">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for alumno in alumnos %}
+                    <tr class="bg-neutral-primary border-b border-default hover:bg-neutral-secondary-soft transition">
+                        <td class="px-6 py-4 font-medium text-heading">{{ alumno.id }}</td>
+                        <td class="px-6 py-4 font-medium text-heading">{{ alumno.nombre }}</td>
+                        <td class="px-6 py-4">{{ alumno.apellidos }}</td>
+                        <td class="px-6 py-4">{{ alumno.email }}</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="{{ url_for('inscripciones.inscribir', id=alumno.id) }}"
+                               class="bg-purple-500 text-white px-4 py-2 rounded-base text-xs hover:opacity-90 transition">
+                                Inscribir a Curso
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

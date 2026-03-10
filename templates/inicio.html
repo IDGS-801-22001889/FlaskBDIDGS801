@@ -3,7 +3,8 @@
 {% block container %}
 <script src="https://cdn.tailwindcss.com"></script>
 
-<div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex flex-col items-center justify-center px-6">
+<div
+    class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex flex-col items-center justify-center px-6">
 
     <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 tracking-wide">
@@ -14,11 +15,11 @@
         </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-6xl">
 
-        <a href="{{ url_for('alumnos.alumno') }}" 
-           class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
-            
+        <a href="{{ url_for('alumnos.alumno') }}"
+            class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
+
             <div class="text-4xl mb-4 text-blue-400 group-hover:scale-110 transition">
                 🎓
             </div>
@@ -32,9 +33,9 @@
             </p>
         </a>
 
-        <a href="{{ url_for('maestros.maestro') }}" 
-           class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
-            
+        <a href="{{ url_for('maestros.maestro') }}"
+            class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
+
             <div class="text-4xl mb-4 text-blue-400 group-hover:scale-110 transition">
                 👨‍🏫
             </div>
@@ -48,9 +49,9 @@
             </p>
         </a>
 
-        <a href="#" 
-           class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
-            
+        <a href="{{ url_for('cursos.curso') }}"
+            class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
+
             <div class="text-4xl mb-4 text-blue-400 group-hover:scale-110 transition">
                 📚
             </div>
@@ -61,6 +62,22 @@
 
             <p class="text-blue-200 mt-3 text-sm">
                 Organiza y controla los cursos disponibles.
+            </p>
+        </a>
+
+        <a href="{{ url_for('inscripciones.inscripcion') }}"
+            class="bg-slate-800/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-lg hover:shadow-blue-500/20 hover:-translate-y-2 transition-all duration-300 p-8 text-center group">
+
+            <div class="text-4xl mb-4 text-blue-400 group-hover:scale-110 transition">
+                📝
+            </div>
+
+            <h2 class="text-xl font-semibold text-white group-hover:text-blue-400 transition">
+                Inscripciones
+            </h2>
+
+            <p class="text-blue-200 mt-3 text-sm">
+                Inscribe alumnos a cursos y gestiona sus registros.
             </p>
         </a>
 
